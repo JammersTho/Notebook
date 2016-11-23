@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">Notebook</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <!-- Fragment Title Strings -->
+    <string name="view_fragment_title">View Note</string>
+    <string name="edit_fragment_title">Edit Note</string>
+
+    <!--Main List Long Click Context Menu-->
+    <string name="edit_menu">Edit</string>
+
+    <!-- Fragment Widget Strings -->
+    <string name="save_note_button">Save Note</string>
+
+</resources>
