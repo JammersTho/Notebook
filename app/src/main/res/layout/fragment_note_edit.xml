@@ -48,8 +48,6 @@
         android:layout_marginStart="4dp"
         android:id="@+id/messageScrollView"
 
-        android:layout_toEndOf="@+id/editNoteButton"
-        android:layout_alignBottom="@+id/editNoteButton"
         android:layout_above="@+id/saveNote">
 
         <EditText

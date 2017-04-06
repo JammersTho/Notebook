@@ -36,25 +36,29 @@ public class MainActivityListFragment extends ListFragment {
             setListAdapter(adapter);
 
             */
-        notes = new ArrayList<Note>();
-        notes.add(new Note("This Is A New Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.STAR));
-        notes.add(new Note("These notes are pretty sick", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.NONE));
-        notes.add(new Note("Shopping list", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.DONE));
-        notes.add(new Note("Christmas Presents", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.HEART));
-        notes.add(new Note("Potato Potato Potato Potato Potato Potato Potato Potato PotatoPotatoPotato PotatoPotato Potato Potato Potato PotatoPotato Potato Potato Potato PotatoPotatoPotato Potato Potato", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.NONE));
-        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.DONE));
-        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.DONE));
-        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.DONE));
-        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
-                Note.Category.DONE));
+//        notes = new ArrayList<Note>();
+//        notes.add(new Note("This Is A New Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.STAR));
+//        notes.add(new Note("These notes are pretty sick", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.NONE));
+//        notes.add(new Note("Shopping list", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.DONE));
+//        notes.add(new Note("Christmas Presents", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato. This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.HEART));
+//        notes.add(new Note("Potato Potato Potato Potato Potato Potato Potato Potato PotatoPotatoPotato PotatoPotato Potato Potato Potato PotatoPotato Potato Potato Potato PotatoPotatoPotato Potato Potato", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.NONE));
+//        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.DONE));
+//        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.DONE));
+//        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.DONE));
+//        notes.add(new Note("This Is Another Note Title!", "This is the body of the note. There's some really important stuff in here. Keep on typing. La la la, potato.",
+//                Note.Category.DONE));
+        NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+        dbAdapter.open();
+        notes = dbAdapter.getAllNotes();
+        dbAdapter.close();
 
         noteAdapter = new NoteAdapter(getActivity(), notes);
 
@@ -85,14 +89,23 @@ public class MainActivityListFragment extends ListFragment {
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int rowPosition = info.position;
-
+        Note note = (Note) getListAdapter().getItem(rowPosition);
         //returns to use id of whatever menu item was selected
         switch (item.getItemId()) {
             case R.id.edit:
-                //do something here
                 launchNoteDetailActivity(MainActivity.FragmentToLaunch.EDIT, rowPosition);
                 Log.d("Menu Clicks", "We pressed edit!");
                 return true;
+            case R.id.delete:
+                NotebookDbAdapter dbAdapter = new NotebookDbAdapter(getActivity().getBaseContext());
+                dbAdapter.open();
+                dbAdapter.deleteNote(note.getId());
+
+                notes.clear();
+                notes.addAll(dbAdapter.getAllNotes());
+                noteAdapter.notifyDataSetChanged();
+
+                dbAdapter.close();
         }
         return super.onContextItemSelected(item);
     }
